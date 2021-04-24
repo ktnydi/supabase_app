@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$HomeStateTearOff {
   const _$HomeStateTearOff();
 
-  _HomeState call({int counter = 0}) {
+  _HomeState call({List<Task> tasks = const <Task>[]}) {
     return _HomeState(
-      counter: counter,
+      tasks: tasks,
     );
   }
 }
@@ -28,7 +28,7 @@ const $HomeState = _$HomeStateTearOff();
 
 /// @nodoc
 mixin _$HomeState {
-  int get counter => throw _privateConstructorUsedError;
+  List<Task> get tasks => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -39,7 +39,7 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
-  $Res call({int counter});
+  $Res call({List<Task> tasks});
 }
 
 /// @nodoc
@@ -52,13 +52,13 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? counter = freezed,
+    Object? tasks = freezed,
   }) {
     return _then(_value.copyWith(
-      counter: counter == freezed
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
+      tasks: tasks == freezed
+          ? _value.tasks
+          : tasks // ignore: cast_nullable_to_non_nullable
+              as List<Task>,
     ));
   }
 }
@@ -69,7 +69,7 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
           _HomeState value, $Res Function(_HomeState) then) =
       __$HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({int counter});
+  $Res call({List<Task> tasks});
 }
 
 /// @nodoc
@@ -83,13 +83,13 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? counter = freezed,
+    Object? tasks = freezed,
   }) {
     return _then(_HomeState(
-      counter: counter == freezed
-          ? _value.counter
-          : counter // ignore: cast_nullable_to_non_nullable
-              as int,
+      tasks: tasks == freezed
+          ? _value.tasks
+          : tasks // ignore: cast_nullable_to_non_nullable
+              as List<Task>,
     ));
   }
 }
@@ -97,15 +97,15 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
-  const _$_HomeState({this.counter = 0});
+  const _$_HomeState({this.tasks = const <Task>[]});
 
-  @JsonKey(defaultValue: 0)
+  @JsonKey(defaultValue: const <Task>[])
   @override
-  final int counter;
+  final List<Task> tasks;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState(counter: $counter)';
+    return 'HomeState(tasks: $tasks)';
   }
 
   @override
@@ -113,20 +113,20 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'HomeState'))
-      ..add(DiagnosticsProperty('counter', counter));
+      ..add(DiagnosticsProperty('tasks', tasks));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _HomeState &&
-            (identical(other.counter, counter) ||
-                const DeepCollectionEquality().equals(other.counter, counter)));
+            (identical(other.tasks, tasks) ||
+                const DeepCollectionEquality().equals(other.tasks, tasks)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(counter);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(tasks);
 
   @JsonKey(ignore: true)
   @override
@@ -135,10 +135,10 @@ class _$_HomeState with DiagnosticableTreeMixin implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({int counter}) = _$_HomeState;
+  const factory _HomeState({List<Task> tasks}) = _$_HomeState;
 
   @override
-  int get counter => throw _privateConstructorUsedError;
+  List<Task> get tasks => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$HomeStateCopyWith<_HomeState> get copyWith =>

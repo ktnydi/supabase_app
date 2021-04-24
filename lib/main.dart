@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:supabase_app/implements/task_repository_impl.dart';
+import 'package:supabase_app/repositories/task_repository.dart';
 import 'package:supabase_app/screens/my_app/my_app_page.dart';
 
 void main() async {
@@ -11,5 +14,12 @@ void main() async {
     ],
   );
 
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<TaskRepository>(create: (_) => TaskRepositoryImpl()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
