@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
+import 'package:supabase_app/notifiers/user_notifier/user_notifier.dart';
 import 'package:supabase_app/screens/home/home_page.dart';
 import 'package:supabase_app/screens/sign_in/sign_in_notifier.dart';
 import 'package:supabase_app/screens/sign_in/sign_in_state.dart';
@@ -16,8 +17,14 @@ class SignIn extends StatelessWidget {
 
     if (!emailState.validate() || !passwordState.validate()) return;
 
+    final userNotifier = context.read<UserNotifier>();
+
     try {
-      // TODO: ログイン
+      final email = emailState.value;
+      final password = passwordState.value;
+      if (email == null || password == null) return;
+
+      await userNotifier.signIn(email, password);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -36,8 +43,14 @@ class SignIn extends StatelessWidget {
 
     if (!emailState.validate() || !passwordState.validate()) return;
 
+    final userNotifier = context.read<UserNotifier>();
+
     try {
-      // TODO: アカウント作成
+      final email = emailState.value;
+      final password = passwordState.value;
+      if (email == null || password == null) return;
+
+      await userNotifier.signUp(email, password);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
